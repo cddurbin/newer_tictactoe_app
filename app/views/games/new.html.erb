@@ -5,11 +5,8 @@
   <%= f.radio_button :player2_id, User.find(3).id %>
   <%= f.label 'Guest' %>
   <%= f.collection_select :player2_id, User.all, :id, :email %>
-<h2>Pick your Mark!</h2>
-  <%= f.label 'X' %>
-  <%= f.radio_button :player1_mark, value: 'x' %>
-  <%= f.label 'O' %>
-  <%= f.radio_button :player1_mark, value: 'o' %>
+  <%= f.hidden_field :player1_mark, value: 'x' %>
+  <%= f.hidden_field :player2_mark, value: 'o' %>
   <%= f.hidden_field :player1_id, value: current_user.id %>
   <%= f.hidden_field :completed, value: false %>
   <%= f.submit %>

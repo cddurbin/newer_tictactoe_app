@@ -14,6 +14,10 @@ class MovesController < ApplicationController
 
   def create
     @move = Move.create(move_params)
+    # @move.player_choice(params[:position])
+    @move.board_update(params[:position], params[:mark])
+
+    # @move.player_choice(params[:position])
 
     if @move.save
       redirect_to game_path(@move.game_id)

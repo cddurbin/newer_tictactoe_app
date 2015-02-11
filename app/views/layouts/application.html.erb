@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>NewerTictactoeApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<header>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-</header>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <link rel="stylesheet" href="foundation.css">
 
-</body>
+  <!-- This is how you would link your custom stylesheet -->
+    <link rel="stylesheet" href="app.css">
+
+  <script src="js/vendor/modernizr.js"></script>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header>
+      <h1>Tic Tac Toe</h1>
+    </header>
+
+    <%= yield %>
+
+  </body>
 </html>
