@@ -10,8 +10,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-    @board = Board.new
-
+    @board = ['','','','','','','','','']
     if @game.save
       redirect_to game_path(@game)
     else
@@ -21,11 +20,15 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @move = Move.new
+  end
+
+  def update
   end
 
   private
   def game_params
-    params.require(:game).permit(:winner, :completed, :player1_id, :player2_id)
+    params.require(:game).permit(:winner, :completed, :player1_id, :player2_id, :player1_mark, :player2_mark)
   end
 
 end

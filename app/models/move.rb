@@ -3,10 +3,18 @@ class Move < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
+  @player1 = []
+  @player2 = []
+  
+  def board_update(position, mark)
+    @board[position] << mark
+  end
 
-  # def mark_assignment
-  #   mark = ['x', 'o'].sample
-  #   self.game.player1.mark = 
+  # def comp_choice
+  #   until @board.sample == ''
+  #     @board.sample
+  #   else
+  #     @board
+  #   end
   # end
-
 end

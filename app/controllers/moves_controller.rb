@@ -13,8 +13,13 @@ class MovesController < ApplicationController
   end
 
   def create
-    @move = Move.new(move_params)
+    @move = Move.create(move_params)
 
+    if @move.save
+      redirect_to game_path(@move.game_id)
+    else
+      puts 'Try again'
+    end
   end
 
   def update
