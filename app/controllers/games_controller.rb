@@ -12,10 +12,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      binding.pry
-      nil
-      
-      redirect_to @game
+      redirect_to new_game_move_path(@game)
     else
       render 'new'
     end

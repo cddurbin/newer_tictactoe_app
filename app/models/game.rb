@@ -4,15 +4,19 @@ class Game < ActiveRecord::Base
   belongs_to :player1, class_name: 'User'
   belongs_to :player2, class_name: 'User'
 
-  # def start
-  #   @board = Board.new
-  # end
+  def start
+    @board = Board.new
+  end
+
+  def plays_first
+
+  end
+
+  
 
 
-  # def player2_assignment(player2)
-  #   self.player2_id = player2
-  # end
-
+  
+ 
 
 
 
