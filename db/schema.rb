@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210185213) do
+ActiveRecord::Schema.define(version: 20150211121609) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20150210185213) do
     t.boolean  "completed"
     t.integer  "player1_id"
     t.integer  "player2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "player1_mark"
+    t.string   "player2_mark"
   end
 
   create_table "moves", force: :cascade do |t|

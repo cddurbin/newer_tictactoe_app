@@ -5,14 +5,14 @@ class Game < ActiveRecord::Base
   belongs_to :player2, class_name: 'User'
 
   def start
-    @board = Board.new
+    board = ['','','','','','','','','']
   end
 
   def plays_first
 
   end
 
-  
+
 
 
   

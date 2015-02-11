@@ -10,13 +10,13 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @board = Board.new
 
     if @game.save
-      redirect_to new_game_move_path(@game)
+      redirect_to game_path(@game)
     else
       render 'new'
     end
-
   end
 
   def show

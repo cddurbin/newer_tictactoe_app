@@ -5,69 +5,45 @@
       <%= form_for @move do |f| %>
         <%= f.label 'one' %>
         <%= f.radio_button :position, value= '1' %>
-        <%= f.submit %>
-      <% end %>
     </div>
     <div class="board-two">
-      <%= form_for @move do |f| %>
         <%= f.label 'two' %>
         <%= f.radio_button :position, value= '2' %>
-        <%= f.submit %>
-      <% end %>
     </div>
     <div class="board-three">
-      <%= form_for @move do |f| %>
         <%= f.label 'three' %>
         <%= f.radio_button :position, value= '3' %>
-        <%= f.submit %>
-      <% end %>
     </div>
   </div>
 <div class="board-mid">
   <div class="board-four">
-    <%= form_for @move do |f| %>
       <%= f.label 'four' %>
       <%= f.radio_button :position, value= '4' %>
-      <%= f.submit %>
-    <% end %>
   </div>
   <div class="board-five">
-    <%= form_for @move do |f| %>
       <%= f.label 'five' %>
       <%= f.radio_button :position, value= '5' %>
-      <%= f.submit %>
-    <% end %>
   </div>
   <div class="board-six">
-    <%= form_for @move do |f| %>
       <%= f.label 'six' %>
       <%= f.radio_button :position, value= '6' %>
-      <%= f.submit %>
-    <% end %>
   </div>
 </div>
   <div class="board-bottom">
     <div class="board-seven">
-      <%= form_for @move do |f| %>
         <%= f.label 'seven' %>
         <%= f.radio_button :position, value= '7' %>
-        <%= f.submit %>
-      <% end %>
     </div>
     <div class="board-eight">
-      <%= form_for @move do |f| %>
         <%= f.label 'eight' %>
         <%= f.radio_button :position, value= '8' %>
-        <%= f.submit %>
-      <% end %>
     </div>
     <div class="board-nine">
-      <%= form_for @move do |f| %>
         <%= f.label 'nine' %>
         <%= f.radio_button :position, value= '9' %>
-        <%= f.submit %>
-      <% end %>
     </div>
-
-  </div>
+    <div class="move-submit">
+      <%= f.submit %>
+    </div>
+    <% end %>
 </div> 
