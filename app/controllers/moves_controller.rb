@@ -13,10 +13,35 @@ class MovesController < ApplicationController
   end
 
   def create
-    @move = Move.create(move_params)
+    @move = Move.new(move_params)
+    board = Board.new
+
+    board = Move.update_board_move(board.grid, move_params[:position].to_i, move_params[:mark])
+
+    game = Game.find(@move.game_id)
+    game.moves.each do |move|
+      board[move.position] = move.mark
+      board
+    end
+
+    binding.pry
+
+
+    
+
+    
+
+    
+
+    
+
+     
+
+    
+
     # @move.player_choice(params[:position])
-    @move.board_update(params[:position], params[:mark])
-   
+    
+
     # @move.player_choice(params[:position])
 
     if @move.save

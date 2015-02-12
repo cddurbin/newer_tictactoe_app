@@ -25,11 +25,15 @@
         <p class="alert"><%= alert %></p>
       </div>
       <div class="sign-in">
-        <ul class="hmenu">
-          <%#= render 'devise/menu/registration_items' %>
-          <%#= render 'devise/menu/login_items' %>
+        <ul>
+          <% if user_signed_in? %>
+          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+          <% else %>
+          <li><%= link_to('Login', new_user_session_path)  %></li>
+          <% end %>
         </ul>
       </div>
+
       <h1>Tic Tac Toe</h1>
     </header>
 

@@ -1,8 +1,8 @@
 class Board
-  attr_accessor :fresh
+  attr_accessor :grid
 
   def initialize
-     @fresh = ['', '', '', '','','','','','']
+     @grid = [0, 1, 2, 3, 4, 5, 6, 7, 8]
   end
 
 end
