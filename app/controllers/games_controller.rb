@@ -20,7 +20,12 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @board = Board.new
     @move = Move.new
+
+    @game.moves.each do |move|
+      @board.grid[move.position] = move.mark
+    end
   end
 
   def update

@@ -1,24 +1,22 @@
 <h1>Game</h1>
 
 <div class="row">
-    
   <%= form_for [@game, @move] do |f| %>
-    <%# @board.each_with_index do |number, index| %>
-    <% 1..9.times.each_with_index do |number, index| %>
+    <% @board.grid.each_with_index do |mark, index| %>
       <div class="large-4 columns board-cell">
-        <%# if number.nil? %>
+        <% if mark.nil? %>
           <%= f.hidden_field :game_id, value: @game.id %>
-          <%#= f.hidden_field :position, value: number %>
           <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :mark, value: @game.player1_mark %>
           <%= f.label "position_value#{index}", index %>
-          <%= f.radio_button :position, value: number %>
-        <%# else %>
-          <%= f.label "#{number}" %>
-        <%# end %>
+          <%= f.radio_button :position, index %>
+        <% else %>
+          <div class="form-submit">
+            <%= f.label "#{mark}" %>
+          </div>
+        <% end %>
       </div>
     <% end %>
-      <%= f.submit %>
+      <%= f.submit "Submit Move" %>
 <% end %>
   
 </div>

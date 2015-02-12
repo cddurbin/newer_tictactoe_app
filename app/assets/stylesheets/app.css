@@ -1,17 +1,23 @@
+
+
 .top-bar {
   background: #DDF5FF;
 }
 
 .columns {
   height: 150px;
-  background-color: green;
-  border: 1px solid black;
+  border: 3px solid black;
 }
 
 .board-cell label {
-
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .board-cell input[type="radio"] {
   display: none;
+}
+
+.board-cell .form-submit label {
+  font-size: 48px;
 }

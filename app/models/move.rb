@@ -6,17 +6,33 @@ class Move < ActiveRecord::Base
   # def self.player_check(player2_id)
   #   if player2_id == 'comp@cpu.com'
 
+  def self.find_mark(game_id)
+   game = Game.find(game_id)
+    if game.moves.present?
+      if game.moves.last.mark == "x"
+        "o"
+      else
+        "x"
+      end
+    else
+      "x"
+    end
+  end
+
+
+
+
 
   def self.update_board_move(board, position, mark)
     board[position] = mark
     board
   end
 
-  def self.update_player_choice(player_choices, position)
+  def self.update_player_choices(player_choices, position)
     player_choices << position
   end
 
-  
+
 
   # def self.update_board_all(board, position, mark)
   #   board[position] << mark

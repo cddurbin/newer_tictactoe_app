@@ -10,26 +10,14 @@ class MovesController < ApplicationController
   end
 
   def create
+    binding.pry
     @move = Move.new(move_params)
-    game = Game.find(move_params[:game_id])
-    board = Board.new
-    # player1 = current_user 
-    # player1_choices = Array.new
-    # comp_choices = Array.new
-
-    # player1_choices = Move.update_player_choice(player1_choices, move_params[:position])
-
-    board = Move.update_board_move(board.grid, move_params[:position].to_i, move_params[:mark])
+    @move.mark = Move.find_mark(params[:game_id])
     
-    game.moves.each do |move|
-      board[move.position] = move.mark
-      board
-    end
 
-    @board = board
     
     if @move.save
-      redirect_to game_move_path(@move)
+      redirect_to game_path(@move.game_id)
     else
       puts 'Try again'
     end
