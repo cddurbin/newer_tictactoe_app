@@ -8,6 +8,8 @@ class Move < ActiveRecord::Base
 
   def self.board_update(position, mark)
     @board[position] << mark
+    binding.pry
+    nil
 
   end
 
