@@ -30,7 +30,16 @@ class GamesController < ApplicationController
     #gather x positions
     noughts = Game.gather_noughts(params[:id])
     crosses = Game.gather_crosses(params[:id])
+    if Game.check_win_combos(noughts, crosses)
+
+      flash[:notice] = "Win!"
+    else
+      nil
+    end
     
+
+    
+
 
   end
 
