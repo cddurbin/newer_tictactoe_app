@@ -33,11 +33,18 @@ class GamesController < ApplicationController
     #check for win
     if Game.check_win_combos(noughts, crosses)
       @winner =  "Win!"
+      @game.completed = true
+      @game.winner = @game.moves.last.user.email
     end
     #check for draw but right now only all spaces
     if Game.check_draw(noughts, crosses)
       @draw = "Boo...Cat's Game"
+      @game.winner = 'draw'
+      binding.pry
+      nil
     end
+
+
 
     
 
