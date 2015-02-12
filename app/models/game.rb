@@ -12,7 +12,18 @@ class Game < ActiveRecord::Base
     wins.each do |win|
       # if (player_choice_array & win).length == win.length
     end
+  end
 
+  def self.gather_noughts(game_id)
+    game = Game.find(game_id)
+    noughts = game.moves.where(mark: 'x')
+    noughts.map {|move| move.position }
+  end
+
+  def self.gather_crosses(game_id)
+    game = Game.find(game_id)
+    noughts = game.moves.where(mark: 'o')
+    noughts.map {|move| move.position }
   end
 
   

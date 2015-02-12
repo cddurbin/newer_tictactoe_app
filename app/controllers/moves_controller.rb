@@ -10,11 +10,9 @@ class MovesController < ApplicationController
   end
 
   def create
-    binding.pry
+
     @move = Move.new(move_params)
     @move.mark = Move.find_mark(params[:game_id])
-    
-
     
     if @move.save
       redirect_to game_path(@move.game_id)

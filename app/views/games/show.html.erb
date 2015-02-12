@@ -7,7 +7,7 @@
         <% if mark.nil? %>
           <%= f.hidden_field :game_id, value: @game.id %>
           <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.label "position_value#{index}", index %>
+          <%= f.label "position_#{index}", index %>
           <%= f.radio_button :position, index %>
         <% else %>
           <div class="form-submit">

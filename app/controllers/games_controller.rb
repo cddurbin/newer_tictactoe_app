@@ -23,12 +23,15 @@ class GamesController < ApplicationController
     @board = Board.new
     @move = Move.new
 
+    #build board moves
     @game.moves.each do |move|
       @board.grid[move.position] = move.mark
     end
-  end
+    #gather x positions
+    noughts = Game.gather_noughts(params[:id])
+    crosses = Game.gather_crosses(params[:id])
+    
 
-  def update
   end
 
   private
