@@ -21,7 +21,10 @@ class Game < ActiveRecord::Base
   end
 
   def self.check_draw(noughts, crosses)
-    if noughts + crosses == 9
+    if (noughts + crosses).length == 9
+      true
+    end
+  end
 
 
   def self.gather_noughts(game_id)

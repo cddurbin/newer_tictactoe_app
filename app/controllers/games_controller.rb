@@ -30,12 +30,15 @@ class GamesController < ApplicationController
     #gather x positions
     noughts = Game.gather_noughts(params[:id])
     crosses = Game.gather_crosses(params[:id])
+    #check for win
     if Game.check_win_combos(noughts, crosses)
-
-      flash[:notice] = "Win!"
-    else
-      nil
+      @winner =  "Win!"
     end
+    #check for draw but right now only all spaces
+    if Game.check_draw(noughts, crosses)
+      @draw = "Boo...Cat's Game"
+    end
+
     
 
     
