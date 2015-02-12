@@ -1,17 +1,24 @@
 <h1>Game</h1>
 
-<div class="board">
-  <div class="board-top">
-    <div class="board-one">
-      <% 1..9.times.each do |number| %>
-        <%= form_for [@game, @move] do |f| %>
+<div class="row">
+    
+  <%= form_for [@game, @move] do |f| %>
+    <%# @board.each_with_index do |number, index| %>
+    <% 1..9.times.each_with_index do |number, index| %>
+      <div class="large-4 columns board-cell">
+        <%# if number.nil? %>
           <%= f.hidden_field :game_id, value: @game.id %>
-          <%= f.hidden_field :position, value: number %>
+          <%#= f.hidden_field :position, value: number %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :mark, value: @game.player1_mark %>
-          <%= f.submit %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+          <%= f.label "position_value#{index}", index %>
+          <%= f.radio_button :position, value: number %>
+        <%# else %>
+          <%= f.label "#{number}" %>
+        <%# end %>
+      </div>
+    <% end %>
+      <%= f.submit %>
+<% end %>
+  
 </div>

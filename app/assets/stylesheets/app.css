@@ -1,0 +1,17 @@
+.top-bar {
+  background: #DDF5FF;
+}
+
+.columns {
+  height: 150px;
+  background-color: green;
+  border: 1px solid black;
+}
+
+.board-cell label {
+
+}
+
+.board-cell input[type="radio"] {
+  display: none;
+}

@@ -1,1 +1,23 @@
 <h1>Move</h1>
+<div class="row">
+    <%# @board.each do |number| %>
+  <%= form_for [@game, @move] do |f| %>
+    <% 1..9.times.each_with_index do |number, index| %>
+      <div class="large-4 columns board-cell">
+        <%# if number.nil? %>
+          <%= f.hidden_field :game_id, value: @game.id %>
+          <%#= f.hidden_field :position, value: number %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :mark, value: @game.player1_mark %>
+          <%= f.label "position_value#{index}", index %>
+          <%= f.radio_button :position, value: number %>
+          <%#= f.submit %>
+        <%# else %>
+          <%= f.label :mark %>
+        <%# end %>
+      </div>
+    <% end %>
+      <%= f.submit %>
+<% end %>
+  
+</div>
