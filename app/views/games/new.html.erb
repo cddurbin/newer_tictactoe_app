@@ -1,13 +1,31 @@
-<h1>New Game</h1>
-<h2>Who would you like to play?</h2>
-<%= form_for @game do |f| %>
-  <%= f.label 'Computer' %>
-  <%= f.radio_button :player2_id, User.find(3).id %>
-  <%= f.label 'Guest' %>
-  <%= f.collection_select :player2_id, User.all, :id, :email %>
-  <%= f.hidden_field :player1_mark, value: 'x' %>
-  <%= f.hidden_field :player2_mark, value: 'o' %>
-  <%= f.hidden_field :player1_id, value: current_user.id %>
-  <%= f.hidden_field :completed, value: false %>
-  <%= f.submit %>
-<% end %> 
+
+<div class="row new-game">
+  <div class="row top">
+    <h2>Who would you like to play?</h2>
+  </div>
+  <form>
+    <%= form_for @game do |f| %>
+    <div class="row radio-game">
+        <label><%= f.label 'Computer' %></label>
+        <%= f.radio_button :player2_id, User.find(3).id %>
+    </div>
+    <div class="row select-game">
+      <label>Human</label>
+      <%= f.collection_select :player2_id, User.all, :id, :email %>
+    </div>
+      <%#= f.collection_select :completed, Game.all, :id, :id %>
+      <%= f.hidden_field :player1_mark, value: 'x' %>
+      <%= f.hidden_field :player2_mark, value: 'o' %>
+      <%= f.hidden_field :player1_id, value: current_user.id %>
+      <%= f.hidden_field :completed, value: false %>
+    <div class="button [radius round]">
+      <%= f.submit "Let's Play!" %>
+    </div>
+    <% end %>
+  </form> 
+</div>
+
+
+
+
+    

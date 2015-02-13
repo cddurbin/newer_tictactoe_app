@@ -2,10 +2,14 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  <!-- <div class="small-9 columns"> -->
+          
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <input type="text" placeholder="email@email"/>
+      <%#= f.label :email %><br />
+      <div class="small-3 columns">
+      <%= f.email_field :email, autofocus: true %><span class="postfix">.com</span>
+      </div>
   </div>
 
   <div class="field">
