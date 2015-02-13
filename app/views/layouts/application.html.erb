@@ -6,7 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
     <link rel="stylesheet" href="css/foundation.css">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
   <!-- This is how you would link your custom stylesheet -->
     <link rel="stylesheet" href="css/app.css">
@@ -33,7 +33,7 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li class="active">
-                <%= link_to('New Game', new_game_path) %>
+              <%= link_to('New Game', new_game_path) %>
             <li class="active">
               <% if user_signed_in? %>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
@@ -51,9 +51,9 @@
               <% end %>
             </li>
             <% if user_signed_in? %>
-        <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
+          <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
             <% else %>
-        <li><%= link_to('Register', new_user_registration_path)  %></li>
+          <li><%= link_to('Register', new_user_registration_path)  %></li>
             <% end %>
             <li class="has-dropdown">
               <a href="#">History</a>
