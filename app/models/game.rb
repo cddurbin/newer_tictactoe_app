@@ -3,10 +3,8 @@ class Game < ActiveRecord::Base
   has_many :moves
   belongs_to :player1, class_name: 'User'
   belongs_to :player2, class_name: 'User'
-#setup initial game
 
-    
-    #win combinations
+#win combinations
   def self.check_win_combos(noughts, crosses)
     wins = [[0, 1, 2], [0, 4, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [2, 4, 6], [3, 4, 5], [6, 7, 8]]
     @win = false
@@ -26,7 +24,6 @@ class Game < ActiveRecord::Base
     end
   end
 
-
   def self.gather_noughts(game_id)
     game = Game.find(game_id)
     noughts = game.moves.where(mark: 'o')
@@ -38,6 +35,9 @@ class Game < ActiveRecord::Base
     noughts = game.moves.where(mark: 'x')
     noughts.map {|move| move.position }
   end
+
+#computer methods
+  
 
   
 end

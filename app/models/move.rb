@@ -3,9 +3,6 @@ class Move < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
-  # def self.player_check(player2_id)
-  #   if player2_id == 'comp@cpu.com'
-
   def self.find_mark(game_id)
    game = Game.find(game_id)
     if game.moves.present?
@@ -19,43 +16,20 @@ class Move < ActiveRecord::Base
     end
   end
 
-
-
-
-
-  def self.update_board_move(board, position, mark)
-    board[position] = mark
-    board
-  end
-
-  def self.update_player_choices(player_choices, position)
-    player_choices << position
+  def self.computer_move(game_id)
+    game = Game.find(game_id)
+    positions_taken = game.moves.map { |move| move.position }
+    board = (0..8).to_a
+    available = board - positions_taken
+    available.sample
   end
 
 
 
-  # def self.update_board_all(board, position, mark)
-  #   board[position] << mark
-  #   board
-  # end
 
-  # def self.player_choice(position)
-  #   @player1[] << position
-  # end
 
-  # def self.player_marks
-  #   if self.player1_mark == 'x'
-  #     self.player2_mark == 'o'
-  #   else
-  #     self.player2_mark == 'x'
-  #   end
-  # end
-
-  # def comp_choice
-  #   until @board.sample == ''
-  #     @board.sample
-  #   else
-  #     @board
-  #   end
-  # end
+      
+    
+   
+ 
 end

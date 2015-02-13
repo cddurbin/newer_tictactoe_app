@@ -1,22 +1,28 @@
-<h1>Game</h1>
-  <%= render 'winlosedraw' %>
+<h1><%= render 'winlosedraw' %></h1>
 <div class="row">
   <%= form_for [@game, @move] do |f| %>
-    <% @board.grid.each_with_index do |mark, index| %>
-      <div class="large-4 columns board-cell">
-        <% if mark.nil? %>
-          <%= f.hidden_field :game_id, value: @game.id %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.label "position_#{index}", index %>
-          <%= f.radio_button :position, index %>
-        <% else %>
-          <div class="form-submit">
-            <%= f.label "#{mark}" %>
-          </div>
-        <% end %>
+    <% unless @board.grid.all? %>
+      <% @board.grid.each_with_index do |mark, index| %>
+        <div class="large-4 columns board-cell">
+          <% if mark.nil? %>
+            <%= f.hidden_field :game_id, value: @game.id %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.label "position_#{index}", index %>
+            <%= f.radio_button :position, index %>
+          <% else %>
+            <div class="cell-mark">
+              <%= f.label "#{mark}" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="form-submit">
+        <%= f.submit "Submit Move" %>
       </div>
+    <% else %>
+      <h1>This Game Is Complete.</h1>
+      <h3><%= link_to('New Game', new_game_path) %></h3>
     <% end %>
-      <%= f.submit "Submit Move" %>
 <% end %>
   
 </div>

@@ -10,14 +10,20 @@ class MovesController < ApplicationController
   end
 
   def create
-
     @move = Move.new(move_params)
     @move.mark = Move.find_mark(params[:game_id])
-    
+    @game = Game.find(params[:game_id])
+
+    # if @game.player2_id == 3
+    #   @comp_move = Move.new(mark: mark, position: Move.computer_move(params[:game_id]), user_id: 3)
+    # else
+    #   @move = Move.new(move_params)
+    # end
+
     if @move.save
       redirect_to game_path(@move.game_id)
     else
-      puts 'Try again'
+      flash.alert = 'Oops...Try again!'
     end
   end
 

@@ -40,8 +40,6 @@ class GamesController < ApplicationController
     if Game.check_draw(noughts, crosses)
       @draw = "Boo...Cat's Game"
       @game.winner = 'draw'
-      binding.pry
-      nil
     end
 
 
