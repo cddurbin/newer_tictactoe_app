@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-    <link rel="stylesheet" href="foundation.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
   <!-- This is how you would link your custom stylesheet -->
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="css/app.css">
 
   <script src="js/vendor/modernizr.js"></script>
 
@@ -21,23 +22,46 @@
   <body>
     <header>
       <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><%= link_to('TicTacToe', root_path)%></h1>
+          </li>
+       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+          <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
+        </ul>
         <section class="top-bar-section">
-          <ul class= "left">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="active">
+                <%= link_to('New Game', new_game_path) %>
+            <li class="active">
+              <% if user_signed_in? %>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+            </li>
+              
+              <% else %>
+              <li class="divider"></li>
+              <li class="active">
+                <%= link_to('Login', new_user_session_path)  %>
+              </li>
+              <li class="divider"></li>
+              <li class="active">
+                <%= link_to('Register', new_user_registration_path)  %>
+              </li>
+              <% end %>
+            </li>
             <% if user_signed_in? %>
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
-            <li class="divider"></li>
+        <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
             <% else %>
-            <li><%= link_to('Login', new_user_session_path)  %></li>
-            <li><%= link_to('Register', new_user_registration_path)  %></li>
+        <li><%= link_to('Register', new_user_registration_path)  %></li>
             <% end %>
-            <li class="divider"></li>
-            <%# if user_signed_in? %>
-            <li><%#= link_to('Edit registration', edit_user_registration_path) %></li>
-            <li class="divider"></li>
-            <%# else %>
-            
-            <%# end %>
-            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">History</a>
+              <ul class="dropdown">
+                <li><a href="#">Leaderboard</a></li>
+                <li class="active"><a href="#">Stats</a></li>
+              </ul>
+            </li>
           </ul>
         </section>
       </nav>
@@ -45,14 +69,9 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
       </div>
-
-      <h1>Tic Tac Toe</h1>
       <!-- <div class="icon-bar five-up">
         <a class="item" aria-label="home"><%#= link_to(root_path) %></a>
           <i class="fi-home"></i> -->
-      <ul>
-        <li><%= link_to('New Game', new_game_path) %></li>
-      </ul>
     </header>
 
     <%= yield %>

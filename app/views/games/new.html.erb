@@ -7,7 +7,7 @@
     <%= form_for @game do |f| %>
     <div class="row radio-game">
         <label><%= f.label 'Computer' %></label>
-        <%= f.radio_button :player2_id, User.find(3).id %>
+        <p><%= f.radio_button :player2_id, User.find(3).id %></p>
     </div>
     <div class="row select-game">
       <label>Human</label>
@@ -18,7 +18,7 @@
       <%= f.hidden_field :player2_mark, value: 'o' %>
       <%= f.hidden_field :player1_id, value: current_user.id %>
       <%= f.hidden_field :completed, value: false %>
-    <div class="button [radius round]">
+    <div class="button round">
       <%= f.submit "Let's Play!" %>
     </div>
     <% end %>
