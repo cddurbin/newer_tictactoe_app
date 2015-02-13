@@ -50,16 +50,15 @@
               </li>
               <% end %>
             </li>
-            <% if user_signed_in? %>
-          <li><%= link_to('Edit registration', edit_user_registration_path) %></li>
-            <% else %>
-          <li><%= link_to('Register', new_user_registration_path)  %></li>
-            <% end %>
+            <%# if user_signed_in? %>
+          <li><%#= link_to('Edit registration', edit_user_registration_path) %></li>
+            <%# else %>
+          <li><%#= link_to('Register', new_user_registration_path)  %></li>
+            <%# end %>
             <li class="has-dropdown">
-              <a href="#">History</a>
+              <a href="#">More</a>
               <ul class="dropdown">
-                <li><a href="#">Leaderboard</a></li>
-                <li class="active"><a href="#">Stats</a></li>
+                <li><%= link_to('Leaderboard', games_path) %></li>
               </ul>
             </li>
           </ul>

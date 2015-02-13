@@ -1,5 +1,10 @@
 <div class="board-show">
-  <h1><%= render 'winlosedraw' %></h1>
+  <div class="row">
+    <div class="win-message">
+      <h1><%= render 'winlosedraw' %></h1>
+    </div>
+   
+  </div>
   <div class="row">
     <%= form_for [@game, @move] do |f| %>
       <% unless @board.grid.all? %>
@@ -17,9 +22,9 @@
             <% end %>
           </div>
         <% end %>
-        <div class="button round">
-          <%= f.submit "Submit Move" %>
-        </div>
+        <!-- <div class="button round"> -->
+          <%= f.submit "Submit Move", class: "button round" %>
+       <!--  </div> -->
       <% else %>
         <h1>This Game Is Complete.</h1>
         <h3><%= link_to('New Game', new_game_path) %></h3>

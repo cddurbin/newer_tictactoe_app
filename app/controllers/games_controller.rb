@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @games = Game.all
   end
 
   def new
@@ -32,7 +33,7 @@ class GamesController < ApplicationController
     crosses = Game.gather_crosses(params[:id])
     #check for win
     if Game.check_win_combos(noughts, crosses)
-      @winner =  "Win!"
+      @winner =  "Winner!"
       @game.completed = true
       @game.winner = @game.moves.last.user.email
     end
