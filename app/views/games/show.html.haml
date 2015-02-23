@@ -15,7 +15,7 @@
             - else
               .cell-mark
                 = f.label "#{mark}"
-          = f.submit "Submit Move", class: "button round"
+        = f.submit "Submit Move", class: "button round"
       - else
         %h1 Game Over.
         %h3= link_to('New Game', new_game_path)
