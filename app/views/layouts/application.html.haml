@@ -1,0 +1,54 @@
+!!! 5
+%html{ lang: "en" }
+  %head
+    %meta{ charset: "utf-8" }
+    -# %meta{ name: "viewport", content="width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+    %link{ rel: "stylesheet", href: "css/foundation.css" }
+    %link{ href: 'https://fonts.googleapis.com/css?family=Montserrat', rel: 'stylesheet', type: 'text/css'}
+    %link{ rel: "stylesheet", href: "css/app.css" }
+
+  %script{ src: "js/vendor/modernizr.js" }
+
+    = stylesheet_link_tag "application" 
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    %header
+      %nav.top-bar{ role: "navigation" }
+        %ul.title-area
+          %li.name
+            %h1= link_to('TicTacToe', root_path)
+          -# <!-- <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li> -->
+        %section.top-bar-section
+          -# <!-- Right Nav Section -->
+          %ul.right
+            %li.active
+              = link_to('New Game', new_game_path)
+            %li.active
+              - if user_signed_in?
+                = link_to('Logout', destroy_user_session_path, :method => :delete)
+              - else
+                %li.divider
+                  %li.active
+                    = link_to('Login', new_user_session_path)
+                %li.divider
+                  %li.active
+                    = link_to('Register', new_user_registration_path)
+            %li.has-dropdown
+              %a{ href: "#" } More
+              %ul.dropdown
+                %li= link_to('Leaderboard', games_path)
+      .notice-alert
+        %p.notice= notice
+        %p.alert= alert
+   
+      -# <!-- <div class="icon-bar five-up">
+        %a.item{ aria-label="home" }
+          %i.fi-home
+
+    = yield
+
