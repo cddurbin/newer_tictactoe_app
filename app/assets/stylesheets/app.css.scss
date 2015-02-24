@@ -1,0 +1,96 @@
+$color-main-red: #FF5A33;
+
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button.round {
+  background-color: $color-main-red;
+  margin-top: 1em;
+}
+
+.select-game .button.round {
+  margin-top: 3em;
+}
+
+.home {
+  text-align: center;
+    a {
+      color: $color-main-red;
+    }
+}
+
+.row a {
+  color: $color-main-red;
+}
+
+.top-bar .title-area {
+  background: $color-main-red;
+}
+
+.leaderboard {
+  text-align: center;
+    h1 {
+      color: $color-main-red;
+    }
+}
+
+.submit {
+  background-color: $color-main-red;
+}
+
+.top-bar-section ul .active {
+  background: $color-main-red;
+}
+
+.top-bar .active {
+  background: green;
+}
+
+.board-show {
+    h1 {
+      font-size: 64px;
+      text-align: center;
+    }
+    h3 {
+      text-align: center;
+    }
+    .columns {
+      height: 150px;
+      border: 10px solid #CCC4C2;
+    }
+    .win-message {
+      text-align: center;
+    }
+}
+
+.board-cell {
+    label {
+      max-height: 100%;
+      max-width: 100%;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    .cell-mark label {
+      font-size: 100px;
+      color:$color-main-red;
+      text-align: center;
+    }
+}
+
+.login {
+    .row {
+    text-align: center;
+    }
+    .button {
+      text-align: center;
+    }
+}
+
+.login-title h1 {
+  text-align: center;
+}
+
+
