@@ -1,0 +1,78 @@
+.login
+  .row
+    %h2 Login
+    %h4
+      %em To Unlock the Wonder!
+  .row
+    .small-6.large-centered.columns
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.label :email
+          %br
+          = f.email_field :email, autofocus: true
+        .row
+          .small-6.large-centered.columns
+            .field
+              = f.label :password
+              %br
+              = f.password_field :password, autocomplete: "off"
+        .row
+          .small-6.large-centered.columns
+            - if devise_mapping.rememberable?
+              .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+        .row
+          .small-6.large-centered.columns
+            .actions
+        = f.submit "Log in", class: "button round"
+  .row
+    = render "devise/shared/links"
+
+-# <!-- <div class="login">
+-#   <div class="row">
+-#     <h2>Login</h2>
+-#     <h4><em>To Unlock the Wonder!</em></h4>
+-#   </div>
+-#   <div class="row">
+-#     <div class="small-6 large-centered columns">
+-#         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+-#           <div class="field">
+-#             <%= f.label :email %><br />
+-#             <%= f.email_field :email, autofocus: true %>
+-#           </div>
+-#     </div>
+-#   </div>
+-#   <div class="row">
+-#     <div class="small-6 large-centered columns">
+-#       <div class="field">
+-#         <%= f.label :password %><br />
+-#         <%= f.password_field :password, autocomplete: "off" %>
+-#       </div>
+-#     </div>
+-#   </div>
+-#   <div class="row">
+-#     <div class="small-6 large-centered columns">
+-#       <% if devise_mapping.rememberable? -%>
+-#         <div class="field">
+-#           <%= f.check_box :remember_me %>
+-#           <%= f.label :remember_me %>
+-#         </div>
+-#       <% end -%>
+-#     </div>
+-#   </div>
+-#   <div class="row">
+-#     <div class="small-6 large-centered columns">
+-#       <div class="actions">
+-#         <!-- <div class="button round"> -->
+-#           <%= f.submit "Log in", class: "button round" %>
+-#         <!-- </div> -->
+-#       </div>
+-#       <% end %>
+-#     </div>
+-#   </div>
+-#   <div class="row">
+-#     <%= render "devise/shared/links" %>
+-#   </div>
+-# </div> -->
+
