@@ -2,22 +2,16 @@
   .small-6.large-centered.columns
     %h2 Who would you like to play?
     = form_for @game do |f|
-    .row.select-game
-      .small-6.large-centered.columns
-        %label Human
-    = f.collection_select :player2_id, User.all, :id, :email
-    .row.select-game
-      .small-6.large-centered.columns
-    = f.hidden_field :player1_mark, value: 'x'
-    = f.hidden_field :player2_mark, value: 'o'
-    = f.hidden_field :player1_id, value: current_user.id
-    = f.hidden_field :completed, value: false
-    .row.select-game
-      .small-6.large-centered.columns
-    = f.submit "Let's Play!", class: "button round"
-
-
-
-
-
-    
+      .row.select-game
+        .small-6.large-centered.columns
+          %label Human
+          = f.collection_select :player2_id, User.all, :id, :email
+      .row.select-game
+        .small-6.large-centered.columns
+          = f.hidden_field :player1_mark, value: 'x'
+          = f.hidden_field :player2_mark, value: 'o'
+          = f.hidden_field :player1_id, value: current_user.id
+          = f.hidden_field :completed, value: false
+      .row.select-game
+        .small-6.large-centered.columns
+          = f.submit "Let's Play!", class: "button round"
