@@ -93,4 +93,12 @@ $color-main-red: #FF5A33;
   text-align: center;
 }
 
+#new_move label {
+    height:144px;
+}
+
+#new_move label:active{
+  background-color:pink;
+  color:pink;
+}
 
