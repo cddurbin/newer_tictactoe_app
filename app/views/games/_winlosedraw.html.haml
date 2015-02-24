@@ -1,0 +1,4 @@
+- if @winner
+  %h1= "#{Move.last.user.email} is the #{@winner}"
+- else
+  %h1= @draw
